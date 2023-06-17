@@ -1,0 +1,18 @@
+feishu:
+  webhook_address: "https://open.feishu.cn/open-apis/bot/v2/hook/1f54fa4e-4f21-41dd-8999-xxxxx"
+  secret: "OpuCJK6HwVxjxxxxx"
+
+url_check:
+  urls:
+    - url: "https://www.51-devops.com/502"
+      description: "业务域名-502"
+    - url: "https://www.51-devops.com"
+      description: "业务域名-正常200域名"
+    - url: "https://www.baidu.com"
+      description: "baidu-业务域名-502"
+    - url: "https://www.51-devops.com/504"
+      description: "业务域名-504"
+    - url: "https://www.51-devops.com/503"
+      description: "业务域名-503"
+  period: 10min
+
