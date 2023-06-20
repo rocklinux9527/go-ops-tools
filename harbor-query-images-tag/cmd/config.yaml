@@ -1,0 +1,6 @@
+harbor:
+  base_url: ""  # base_url 配置域名记得带上 "/" 如: reg.harbor.com/ #不能为空
+  username: ""    # 登陆账号(提前进行授权project) 不能为空
+  password: ""  # 登陆密码 不能为空
+  project_name: ""  #harbor project 名称项目名称必须存在. (只支持单个project) 不能为空
+  latest_tags_number: 1  #project 项目中每一个repo仓库最近 tags个数 (15) 至少1个不能为0值 不能为空
