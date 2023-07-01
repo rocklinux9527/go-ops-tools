@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"harbor_handle/config"
 )
-
 func GetUserToken() (token string) {
 	cfg, err := config.AnalyzeYaml()
 	if err != nil {

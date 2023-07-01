@@ -7,16 +7,6 @@ import (
 	"strings"
 )
 
-// 定义一个初始为空的字符串 slice
-
-//type Tag struct {
-//	Name string `json:"name"`
-//}
-//
-//type Artifact struct {
-//	Tags []Tag `json:"tags"`
-//}
-
 // Artifact 结构体定义
 type Artifact struct {
 	Tags []struct {
@@ -91,47 +81,3 @@ func GetLatestTags(accessURL, projectName, token, repoName string, n int) ([]str
 
 	return tags, nil
 }
-
-//func GetTagsName(accessUrl, projectName, token, repoName string) ([]string, error) {
-//	// 初始化一个切片保存完整的 tags URL
-//	fullTagsUrlList := []string{}
-//	if accessUrl == "" || projectName == "" || token == "" {
-//		return nil, errors.New("missing required parameter(s)")
-//	}
-//	pageSize := 15
-//	page := 1
-//	url := fmt.Sprintf("%sapi/v2.0/projects/%s/repositories/%s/artifacts", accessUrl, projectName, repoName)
-//	fmt.Println(url)
-//
-//	// 发起 GET 请求
-//
-//	resp, err := req.Get(url,
-//		req.Header{
-//			"Authorization": fmt.Sprintf("Basic %s", token),
-//		},
-//		req.QueryParam{
-//			"page_size": pageSize,
-//			"page":      page,
-//		},
-//	)
-//	if err != nil {
-//		return nil, fmt.Errorf("error fetching data from API: %v", err)
-//	}
-//
-//	//解析JSON数据
-//	var artifacts []Artifact
-//	if err := resp.ToJSON(&artifacts); err != nil {
-//		log.Fatal(err)
-//	}
-//	// 遍历解析出来的 artifacts 切片
-//
-//	for _, artifact := range artifacts {
-//		for _, tag := range artifact.Tags {
-//			tagsName := tag.Name
-//			// 构造完整的 tag URL
-//			fullTagsUrl := fmt.Sprintf("%s%s:%s", accessUrl, repoName, tagsName)
-//			fullTagsUrlList = append(fullTagsUrlList, fullTagsUrl)
-//		}
-//	}
-//	return fullTagsUrlList, nil
-//}

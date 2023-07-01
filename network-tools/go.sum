@@ -1,0 +1,4 @@
+github.com/aeden/traceroute v0.0.0-20210211061815-03f5f7cb7908 h1:6suDyKbvZ5r2G/gblQLV9Cdv7rdqNlUxsRXpLOF0rKM=
+github.com/aeden/traceroute v0.0.0-20210211061815-03f5f7cb7908/go.mod h1:HPBB/4vaPt7NcN9l72/+IwsmDVQsa6AWM6ZDKJCLB9U=
+golang.org/x/text v0.10.0 h1:UpjohKhiEgNc0CSauXmwYftY1+LlaC75SJwh0SgCX58=
+golang.org/x/text v0.10.0/go.mod h1:TvPlkZtksWOMsz7fbANvkp4WM8x/WCo/om8BMLbz+aE=
