@@ -1,0 +1,3 @@
+gitlab:
+  api_url: ""  # base_url 配置gitlabb域名
+  private_token: ""    # 登陆账号(gitlab创建token)
