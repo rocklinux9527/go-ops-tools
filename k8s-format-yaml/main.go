@@ -57,17 +57,25 @@ func k8sYamlAnalyzeFormat(sourcePath string, destPath string) {
 		}
 	}
 
-	crdMetadata, ok := yamlData["metadata"].(map[interface{}]interface{}) // 清理crd添加的属性
-	if ok {
-		delete(crdMetadata, "ownerReferences")
-		log.Printf("删除k8s metadata 字段中的 ownerReferences sucess")
+
+	spec, specOk := yamlData["spec"].(map[interface{}]interface{})
+	if specOk {
+
+		template, templateOk := spec["template"].(map[interface{}]interface{})
+		if templateOk {
+			metadata, metadataOk := template["metadata"].(map[interface{}]interface{})
+			if metadataOk {
+				delete(metadata, "creationTimestamp") // 清理spec.template.metadata.creationTimestamp 的属性
+				log.Printf("删除k8s spec.template.metadata 字段中的 creationTimestamp sucess")
+			}
+		}
 	}
 
-	templateMetadata, ok := yamlData["spec"].(map[interface{}]interface{})["template"].(map[interface{}]interface{})["metadata"].(map[interface{}]interface{})
-	if ok {
-		delete(templateMetadata, "creationTimestamp")
-		log.Printf("删除k8s spec.template.metadata 字段中的 creationTimestamp sucess")
-	} // 清理spec.template.metadata.creationTimestamp 的属性
+	specV2, specOkV2 := yamlData["spec"].(map[interface{}]interface{})
+	if specOkV2 {
+		delete(specV2, "clusterIP")
+		log.Printf("删除k8s spec.clusterIP 字段中的 ip地址")
+	}
 
 	// 将 map 转换回 yaml 格式
 	newData, err := yaml.Marshal(&yamlData)
