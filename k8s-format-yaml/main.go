@@ -28,6 +28,12 @@ func k8sYamlAnalyzeFormat(sourcePath string, destPath string) {
 		log.Fatalf("读取文件失败：%v", err)
 	}
 
+	// 检查文件是否为空
+	if len(data) == 0 {
+		log.Printf("警告：文件名称为空：%s", sourcePath)
+		return
+	}
+
 	// 将 yaml 解析为 map[string]interface{} 类型
 	yamlData := make(map[string]interface{})
 	err = yaml.Unmarshal(data, &yamlData)
