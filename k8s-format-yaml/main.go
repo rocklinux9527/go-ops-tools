@@ -38,12 +38,18 @@ func k8sYamlAnalyzeFormat(sourcePath string, destPath string) {
 	delete(yamlData, "status") //	删除 status 节点下的所有内容
 	log.Printf("删除k8s status 字段中所有字段 sucess")
 
-	// nsMetadata, ok := yamlData["metadata"].(map[interface{}]interface{}) // 清理crd添加的属性
+	nsMetadata, ok := yamlData["metadata"].(map[interface{}]interface{}) // 清理crd添加的属性
 
-	//if ok {
-	//		delete(nsMetadata, "namespace")
-	//		log.Printf("删除k8s metadata 字段中的 namespace字段 sucess")
-	//	}
+	if ok {
+		// 列出要删除的键 删除多个同级别的删除的键
+		keysToDelete := []string{"managedFields", "resourceVersion", "selfLink", "uid", "nsMetadata", "creationTimestamp", "generation", "annotations"}
+
+		// 遍历要删除的键，并逐一删除
+		for _, key := range keysToDelete {
+			delete(nsMetadata, key)
+			log.Printf("删除k8s metadata 字段中的 %s 字段成功", key)
+		}
+	}
 
 	crdMetadata, ok := yamlData["metadata"].(map[interface{}]interface{}) // 清理crd添加的属性
 	if ok {
@@ -56,18 +62,6 @@ func k8sYamlAnalyzeFormat(sourcePath string, destPath string) {
 		delete(templateMetadata, "creationTimestamp")
 		log.Printf("删除k8s spec.template.metadata 字段中的 creationTimestamp sucess")
 	} // 清理spec.template.metadata.creationTimestamp 的属性
-
-	annotationsMetadata, ok := yamlData["metadata"].(map[interface{}]interface{}) // 清理 k8s生成的注解
-	if ok {
-		delete(annotationsMetadata, "annotations")
-		log.Printf("删除k8s metadata  字段中的 annotations 注解 sucess")
-	}
-
-	metadata, ok := yamlData["metadata"].(map[interface{}]interface{}) //删除 metadata.creationTimestamp 时间戳
-	if ok {
-		delete(metadata, "creationTimestamp")
-		log.Printf("删除k8s metadata  字段中的 creationTimestamp 创建时间 sucess")
-	}
 
 	// 将 map 转换回 yaml 格式
 	newData, err := yaml.Marshal(&yamlData)
