@@ -1,10 +1,10 @@
 package service
 
 import (
-	"eagle-cicd-sub/api/v1"
-	"eagle-cicd-sub/logger"
-	"eagle-cicd-sub/pkg/database"
-	"eagle-cicd-sub/pkg/models"
+	"gin-crud-demo/api/v1"
+	"gin-crud-demo/logger"
+	"gin-crud-demo/pkg/database"
+	"gin-crud-demo/pkg/models"
 	"errors"
 	"fmt"
 	"gorm.io/gorm"
