@@ -1,0 +1,10 @@
+mysql:
+  host: localhost
+  port: 3306
+  user: root
+  password: root
+  dbname: ops_db
+  charset: utf8mb4
+  max_open_connections: 30
+  max_idle_connections:  15
+  max_life_seconds: 5*60
