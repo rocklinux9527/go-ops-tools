@@ -239,16 +239,13 @@ curl --location --request POST 'http://127.0.0.1:8080/report_alert?lark_webhook=
 
 **告警显示**
 
-![带告警模版实例](https://github.com/rocklinux9527/op-prom-lark-api/assets/120091528/c481c3ad-fc24-4f41-b151-ea6801325749)
+![带告警模版实例](https://github.com/rocklinux9527/go-ops-tools/blob/master/op-prome-lark/assets/multiple-alarm-firing.png)
 
-![带告警模版实例](https://github.com/rocklinux9527/op-prom-lark-api/assets/120091528/c481c3ad-fc24-4f41-b151-ea6801325749)
+![带告警模版实例](https://github.com/rocklinux9527/go-ops-tools/blob/master/op-prome-lark/assets/multiple-alarm-resolved.png)
 
-![带告警模版实例](https://github.com/rocklinux9527/op-prom-lark-api/assets/120091528/c481c3ad-fc24-4f41-b151-ea6801325749)
+![带告警模版实例](https://github.com/rocklinux9527/go-ops-tools/blob/master/op-prome-lark/assets/single-alarm-firing.png)
 
-![带告警模版实例](https://github.com/rocklinux9527/op-prom-lark-api/assets/120091528/c481c3ad-fc24-4f41-b151-ea6801325749)
-
-![带告警模版实例](https://github.com/rocklinux9527/op-prom-lark-api/assets/120091528/c481c3ad-fc24-4f41-b151-ea6801325749)
-
+![带告警模版实例](https://github.com/rocklinux9527/go-ops-tools/blob/master/op-prome-lark/assets/single-alarm-resolved.png)
 
 
 
