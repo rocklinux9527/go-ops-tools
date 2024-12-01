@@ -10,4 +10,5 @@
   5.op-gitlab-api #gitlab 获取项目列表 项目名称和项目id
   6.k8s-format-yaml #去掉k8s运行yaml无效信息
   7.gin-crud-demo  #gin 框架对MYSQL 增删修查(gorm)
+  8.op-prome-lark #alertmanager 扩展webhook 发送飞书
 ```
